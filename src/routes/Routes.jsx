@@ -1,11 +1,10 @@
+import { createBrowserRouter } from "react-router-dom";
 
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <div>Routes</div>,
+    },
+]);
 
-const Routes = () => {
-    return (
-        <div>
-            Routes
-        </div>
-    );
-};
-
-export default Routes;
+export default router;
