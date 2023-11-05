@@ -64,7 +64,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <figure className="hidden lg:contents"><img className="w-[257px] h-[150px] -ml-11 mt-2" src="https://i.ibb.co/0tFR2j1/Logo.png" alt="Logo" /></figure>
-                <ul className="hidden lg:flex gap-5 flex-1 items-center justify-start lg:ml-52">
+                <ul className="hidden lg:flex gap-5 flex-1 items-center justify-start lg:ml-32">
                     <li className="text-lg">
                         <NavLink
                             to="/"
@@ -109,7 +109,7 @@ const Navbar = () => {
                             All Blogs
                         </NavLink>
                     </li>
-                    
+
                     <li className="text-lg">
                         <NavLink
                             to="/featured-blogs"
