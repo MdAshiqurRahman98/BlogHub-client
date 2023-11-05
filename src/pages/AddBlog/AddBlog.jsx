@@ -34,7 +34,7 @@ const AddBlog = () => {
     }
 
     return (
-        <div className="bg-[#F4F3F0] p-24 mt-12 mb-9">
+        <div className="bg-base-200 p-24 mt-12 mb-9">
             <h2 className="text-3xl font-bold mb-7">Add a Blog</h2>
             <form onSubmit={handleAddBlog}>
                 {/* form title and image row */}

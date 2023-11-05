@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import useAuth from './../../../hooks/useAuth';
 import { useTheme } from './../../../hooks/useTheme';
-import { BsSun, BsMoon } from 'react-icons/bs';
+import { BiSolidSun, BiSolidMoon } from 'react-icons/bi';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -69,9 +69,9 @@ const Navbar = () => {
 
                 <figure className="hidden md:contents"><img className="w-[30px] h-[30px] mt-1" src="https://i.ibb.co/r3P0x4d/blog-logo.png" alt="Logo" /><span className="text-3xl font-bold text-orange-500 ml-3">BlogHub</span></figure>
 
-                <span onClick={changeTheme} className="text-xl ml-1 lg:ml-7">
+                <span onClick={changeTheme} className="text-xl ml-1 lg:ml-7 mt-1">
                     {
-                        mode === 'dark' ? <BsSun className="text-white"></BsSun> : <BsMoon className="text-black"></BsMoon>
+                        mode === 'dark' ? <BiSolidSun className="text-orange-500"></BiSolidSun> : <BiSolidMoon className="text-orange-500"></BiSolidMoon>
                     }
                 </span>
 
