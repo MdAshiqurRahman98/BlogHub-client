@@ -15,7 +15,7 @@ const Navbar = () => {
             isPending
                 ? "pending"
                 : isActive
-                    ? "text-[#FF444A] text-lg font-bold"
+                    ? "text-orange-500 text-lg font-bold"
                     : ""
         }>Home</NavLink></li>
 
@@ -23,7 +23,7 @@ const Navbar = () => {
             isPending
                 ? "pending"
                 : isActive
-                    ? "text-[#FF444A] text-lg font-bold"
+                    ? "text-orange-500 text-lg font-bold"
                     : ""
         }>Add Blog</NavLink></li>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
             isPending
                 ? "pending"
                 : isActive
-                    ? "text-[#FF444A] text-lg font-bold"
+                    ? "text-orange-500 text-lg font-bold"
                     : ""
         }>All Blogs</NavLink></li>
 
@@ -39,7 +39,7 @@ const Navbar = () => {
             isPending
                 ? "pending"
                 : isActive
-                    ? "text-[#FF444A] text-lg font-bold"
+                    ? "text-orange-500 text-lg font-bold"
                     : ""
         }>Featured Blogs</NavLink></li>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
             isPending
                 ? "pending"
                 : isActive
-                    ? "text-[#FF444A] text-lg font-bold"
+                    ? "text-orange-500 text-lg font-bold"
                     : ""
         }>Wishlist</NavLink></li>
     </>
@@ -63,7 +63,9 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <figure className="hidden lg:contents"><img className="w-[257px] h-[150px] -ml-11 mt-2" src="https://i.ibb.co/0tFR2j1/Logo.png" alt="Logo" /></figure>
+
+                <figure className="hidden md:contents"><img className="w-[30px] h-[30px] mt-1" src="https://i.ibb.co/r3P0x4d/blog-logo.png" alt="Logo" /><span className="text-3xl font-bold text-orange-500 ml-3">BlogHub</span></figure>
+
                 <ul className="hidden lg:flex gap-5 flex-1 items-center justify-start lg:ml-32">
                     <li className="text-lg">
                         <NavLink
@@ -72,7 +74,7 @@ const Navbar = () => {
                                 isPending
                                     ? "pending"
                                     : isActive
-                                        ? "text-[#FF444A] text-lg font-bold"
+                                        ? "text-orange-500 text-lg font-bold"
                                         : ""
                             }
                         >
@@ -87,7 +89,7 @@ const Navbar = () => {
                                 isPending
                                     ? "pending"
                                     : isActive
-                                        ? "text-[#FF444A] text-lg font-bold"
+                                        ? "text-orange-500 text-lg font-bold"
                                         : ""
                             }
                         >
@@ -102,7 +104,7 @@ const Navbar = () => {
                                 isPending
                                     ? "pending"
                                     : isActive
-                                        ? "text-[#FF444A] text-lg font-bold"
+                                        ? "text-orange-500 text-lg font-bold"
                                         : ""
                             }
                         >
@@ -117,7 +119,7 @@ const Navbar = () => {
                                 isPending
                                     ? "pending"
                                     : isActive
-                                        ? "text-[#FF444A] text-lg font-bold"
+                                        ? "text-orange-500 text-lg font-bold"
                                         : ""
                             }
                         >
@@ -132,7 +134,7 @@ const Navbar = () => {
                                 isPending
                                     ? "pending"
                                     : isActive
-                                        ? "text-[#FF444A] text-lg font-bold"
+                                        ? "text-orange-500 text-lg font-bold"
                                         : ""
                             }
                         >
@@ -140,6 +142,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                 </ul>
+
                 <ul>
                     <li className="text-lg">
                         {
@@ -149,13 +152,13 @@ const Navbar = () => {
                                 <NavLink
                                     onClick={handleLogOut}
                                 >
-                                    <button className="btn btn-sm normal-case text-white bg-[#FF444A] hover:bg-[#FF444A]">Logout</button>
+                                    <button className="btn btn-sm normal-case text-white bg-orange-500 hover:bg-orange-500">Logout</button>
                                 </NavLink>
                             </div>
                                 : <NavLink
                                     to="/login"
                                 >
-                                    <button className="btn btn-sm normal-case text-white bg-[#FF444A] hover:bg-[#FF444A]">Login</button>
+                                    <button className="btn btn-sm normal-case text-white bg-orange-500 hover:bg-orange-500">Login</button>
                                 </NavLink>
                         }
                     </li>
