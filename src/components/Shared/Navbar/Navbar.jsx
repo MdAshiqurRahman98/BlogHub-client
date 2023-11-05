@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
 import useAuth from './../../../hooks/useAuth';
+import { useTheme } from './../../../hooks/useTheme';
+import { BsSun, BsMoon } from 'react-icons/bs';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const { changeTheme, mode } = useTheme();
 
     const handleLogOut = () => {
         logOut()
@@ -65,6 +68,12 @@ const Navbar = () => {
                 </div>
 
                 <figure className="hidden md:contents"><img className="w-[30px] h-[30px] mt-1" src="https://i.ibb.co/r3P0x4d/blog-logo.png" alt="Logo" /><span className="text-3xl font-bold text-orange-500 ml-3">BlogHub</span></figure>
+
+                <span onClick={changeTheme} className="text-xl ml-1 lg:ml-7">
+                    {
+                        mode === 'dark' ? <BsSun className="text-white"></BsSun> : <BsMoon className="text-black"></BsMoon>
+                    }
+                </span>
 
                 <ul className="hidden lg:flex gap-5 flex-1 items-center justify-start lg:ml-32">
                     <li className="text-lg">
