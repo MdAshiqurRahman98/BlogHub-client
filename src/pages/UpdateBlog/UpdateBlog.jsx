@@ -1,10 +1,18 @@
 import axios from "axios";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
     const blog = useLoaderData();
     const { _id, title, image, category, shortDescription, longDescription } = blog || {};
+
+    const [categoryValue, setCategory] = useState(category);
+
+    const handleCategoryChange = event => {
+        console.log(event.target.value);
+        setCategory(event.target.value);
+    };
 
     const handleUpdateBlog = event => {
         event.preventDefault();
@@ -65,8 +73,12 @@ const UpdateBlog = () => {
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" defaultValue={category} className="input input-bordered w-full" />
+                        <label className='input-group'>
+                            <select value={categoryValue} onChange={handleCategoryChange} name="category" id="" defaultValue={category} className="input input-bordered w-full">
+                                <option value="Technology">Technology</option>
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                            </select>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -84,9 +96,7 @@ const UpdateBlog = () => {
                         <label className="label">
                             <span className="label-text">Long Description</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="longDescription" placeholder="Long Description" defaultValue={longDescription} className="input input-bordered w-full" />
-                        </label>
+                        <textarea name="longDescription" placeholder="Long Description" defaultValue={longDescription} className="textarea textarea-bordered h-32 w-full"></textarea>
                     </div>
                 </div>
                 <input type="submit" value="Update Blog" className="btn btn-block text-white bg-orange-500 hover:bg-orange-500 normal-case" />

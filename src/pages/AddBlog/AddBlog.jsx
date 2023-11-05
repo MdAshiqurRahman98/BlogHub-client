@@ -1,7 +1,15 @@
 import axios from 'axios';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const AddBlog = () => {
+    const [categoryValue, setCategory] = useState("");
+
+    const handleCategoryChange = event => {
+        console.log(event.target.value);
+        setCategory(event.target.value);
+    };
+
     const handleAddBlog = event => {
         event.preventDefault();
 
@@ -62,8 +70,12 @@ const AddBlog = () => {
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                        <label className='input-group'>
+                            <select value={categoryValue} onChange={handleCategoryChange} name="category" id="" className="input input-bordered w-full">
+                                <option value="Technology">Technology</option>
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                            </select>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -81,9 +93,7 @@ const AddBlog = () => {
                         <label className="label">
                             <span className="label-text">Long Description</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="longDescription" placeholder="Long Description" className="input input-bordered w-full" />
-                        </label>
+                        <textarea name="longDescription" placeholder="Long Description" className="textarea textarea-bordered h-32 w-full"></textarea>
                     </div>
                 </div>
                 <input type="submit" value="Add Blog" className="btn btn-block text-white bg-orange-500 hover:bg-orange-500 normal-case" />
