@@ -3,11 +3,11 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const AddBlog = () => {
-    const [categoryValue, setCategory] = useState("");
+    const [categoryValue, setCategoryValue] = useState("");
 
     const handleCategoryChange = event => {
         console.log(event.target.value);
-        setCategory(event.target.value);
+        setCategoryValue(event.target.value);
     };
 
     const getCurrentTimestamp = () => {
@@ -37,7 +37,7 @@ const AddBlog = () => {
                 if (res.data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Product Added Successfully',
+                        text: 'Blog Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })

@@ -7,11 +7,11 @@ const UpdateBlog = () => {
     const blog = useLoaderData();
     const { _id, title, image, category, shortDescription, longDescription } = blog || {};
 
-    const [categoryValue, setCategory] = useState(category);
+    const [categoryValue, setCategoryValue] = useState(category);
 
     const handleCategoryChange = event => {
         console.log(event.target.value);
-        setCategory(event.target.value);
+        setCategoryValue(event.target.value);
     };
 
     const handleUpdateBlog = event => {
@@ -36,7 +36,7 @@ const UpdateBlog = () => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Product Updated Successfully',
+                        text: 'Blog Updated Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
