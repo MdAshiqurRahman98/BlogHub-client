@@ -11,7 +11,7 @@ const BlogsCard = ({ blog }) => {
             </div>
             <div className="pl-7">
                 <h3 className="text-lg font-bold mb-2">{title}</h3>
-                <p className="font-medium mb-1">Category: {category}</p>
+                <p className="font-medium mb-2">Category: {category}</p>
                 <p className="font-medium mb-1">{shortDescription}</p>
                 <div className="flex">
                     <Link to={`/blog/${_id}`}>

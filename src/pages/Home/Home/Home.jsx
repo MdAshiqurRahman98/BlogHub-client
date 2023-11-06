@@ -10,8 +10,7 @@ const handleSubscribe = event => {
     if (email) {
         Swal.fire({
             icon: "success",
-            title: "Success!",
-            text: "You have subscribed successfully",
+            title: "Thank you for subscribing to our newsletter!",
         });
         form.reset();
     }
