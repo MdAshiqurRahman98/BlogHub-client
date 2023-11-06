@@ -19,16 +19,18 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/all-blogs')
             },
             {
                 path: '/add-blog',
                 element: <AddBlog></AddBlog>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('http://localhost:5000/add-blog')
             },
             {
                 path: '/all-blogs',
-                element: <AllBlogs></AllBlogs>
+                element: <AllBlogs></AllBlogs>,
+                loader: () => fetch('http://localhost:5000/all-blogs')
             },
             {
                 path: '/featured-blogs',
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/update-blog/:id',
                 element: <UpdateBlog></UpdateBlog>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/update-blog/${params.id}`)
             },
             {
                 path: '/login',

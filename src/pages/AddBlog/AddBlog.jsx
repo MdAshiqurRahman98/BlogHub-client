@@ -10,6 +10,11 @@ const AddBlog = () => {
         setCategory(event.target.value);
     };
 
+    const getCurrentTimestamp = () => {
+        const currentDate = new Date();
+        return currentDate.toISOString();
+    }
+
     const handleAddBlog = event => {
         event.preventDefault();
 
@@ -21,12 +26,12 @@ const AddBlog = () => {
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
 
-        const newBlog = { title, image, category, shortDescription, longDescription };
+        const newBlog = { title, image, category, shortDescription, longDescription, timestamp: getCurrentTimestamp() };
 
         console.log(newBlog);
 
         // Send data to the server
-        axios.post('http://localhost:5000/blogs', newBlog)
+        axios.post('http://localhost:5000/add-blog', newBlog)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

@@ -30,7 +30,7 @@ const UpdateBlog = () => {
         console.log(updatedBlog);
 
         // Send data to the server
-        axios.patch(`http://localhost:5000/blogs/${_id}`, updatedBlog)
+        axios.patch(`http://localhost:5000/update-blog/${_id}`, updatedBlog)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
