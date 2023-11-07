@@ -11,6 +11,7 @@ const handleSubscribe = event => {
         Swal.fire({
             icon: "success",
             title: "Thank you for subscribing to our newsletter!",
+            confirmButtonText: 'OK'
         });
         form.reset();
     }
