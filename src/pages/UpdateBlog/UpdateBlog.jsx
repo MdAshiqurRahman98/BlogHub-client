@@ -45,7 +45,7 @@ const UpdateBlog = () => {
     }
 
     return (
-        <div className="bg-base-200 p-24 mb-9">
+        <div className="bg-base-200 p-24 mt-12 mb-9">
             <h2 className="text-3xl font-bold mb-7">Update a Blog</h2>
             <form onSubmit={handleUpdateBlog}>
                 {/* form title and image row */}

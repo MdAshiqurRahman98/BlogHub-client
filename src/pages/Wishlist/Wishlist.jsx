@@ -11,7 +11,7 @@ const Wishlist = () => {
     const [blogs, setBlogs] = useState([]);
     const axiosSecure = useAxiosSecure();
 
-    const url = `/user-wishlist?email=${user?.email}`;
+    const url = `/wishlist?email=${user?.email}`;
 
     useEffect(() => {
         axiosSecure.get(url)
@@ -51,7 +51,7 @@ const Wishlist = () => {
     }
 
     return (
-        <div className="mb-11">
+        <div className="mt-14 mb-11">
             {
                 blogs ? <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-9'>
                     {

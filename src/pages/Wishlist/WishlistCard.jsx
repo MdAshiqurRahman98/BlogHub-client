@@ -15,7 +15,7 @@ const WishlistCard = ({ blog, handleRemove }) => {
                 <p className="font-medium mb-1">{shortDescription}</p>
 
                 <div className='flex'>
-                    <Link to={`/blog/${_id}`}>
+                    <Link to={`/blog-from-wishlist/${_id}`}>
                         <button className="btn btn-sm text-white bg-orange-500 hover:bg-orange-500 normal-case text-[15px] font-semibold rounded mt-3 mr-1 md:mr-3">Details</button>
                     </Link>
 
