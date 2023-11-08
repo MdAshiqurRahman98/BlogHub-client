@@ -10,6 +10,7 @@ import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import AddBlog from "../pages/AddBlog/AddBlog";
 import UpdateBlog from "../pages/UpdateBlog/UpdateBlog";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-blog',
-                element: <AddBlog></AddBlog>,
+                element: <PrivateRoute><AddBlog></AddBlog></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/add-blog')
             },
             {
@@ -38,21 +39,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/wishlist',
-                element: <Wishlist></Wishlist>
+                element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>
             },
             {
                 path: '/blog/:id',
-                element: <BlogDetails></BlogDetails>,
+                element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
             },
             {
                 path: '/blog-from-wishlist/:id',
-                element: <BlogDetails></BlogDetails>,
+                element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blog-from-wishlist/${params.id}`)
             },
             {
                 path: '/update-blog/:id',
-                element: <UpdateBlog></UpdateBlog>,
+                element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
             },
             {
