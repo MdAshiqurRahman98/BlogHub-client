@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const BlogDetails = () => {
     const blogs = useLoaderData();
-    const { _id, title, image, category, shortDescription, longDescription, timestamp } = blogs || {};
+    const { _id, title, image, category, shortDescription, longDescription } = blogs || {};
 
     return (
         <div className="my-11">
@@ -13,8 +13,7 @@ const BlogDetails = () => {
                 </Link>
             </div>
             <h3 className="my-5 text-4xl font-bold">{title}</h3>
-            <p className="mb-1 font-semibold">Posted: {timestamp}</p>
-            <p className="mb-3 font-semibold">Category: {category}</p>
+            <p className="mb-5 font-semibold">Category: {category}</p>
             <p className="mb-1">{shortDescription}</p>
             <p className="text-justify">{longDescription}</p>
         </div>

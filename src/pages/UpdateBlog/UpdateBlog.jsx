@@ -1,13 +1,16 @@
-import axios from "axios";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateBlog = () => {
     const blog = useLoaderData();
     const { _id, title, image, category, shortDescription, longDescription } = blog || {};
 
     const [categoryValue, setCategoryValue] = useState(category);
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
     const handleCategoryChange = event => {
         console.log(event.target.value);
@@ -30,7 +33,7 @@ const UpdateBlog = () => {
         console.log(updatedBlog);
 
         // Send data to the server
-        axios.patch(`http://localhost:5000/update-blog/${_id}`, updatedBlog)
+        axiosSecure.patch(`/update-blog/${_id}?email=${user?.email}`, updatedBlog)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {

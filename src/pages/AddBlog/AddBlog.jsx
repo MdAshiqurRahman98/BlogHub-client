@@ -1,9 +1,12 @@
-import axios from 'axios';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AddBlog = () => {
     const [categoryValue, setCategoryValue] = useState("");
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
     const handleCategoryChange = event => {
         console.log(event.target.value);
@@ -31,7 +34,7 @@ const AddBlog = () => {
         console.log(newBlog);
 
         // Send data to the server
-        axios.post('http://localhost:5000/add-blog', newBlog)
+        axiosSecure.post(`/add-blog?email=${user?.email}`, newBlog)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
