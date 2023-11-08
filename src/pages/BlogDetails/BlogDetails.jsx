@@ -1,8 +1,38 @@
 import { Link, useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BlogDetails = () => {
     const blogs = useLoaderData();
     const { _id, title, image, category, shortDescription, longDescription, timestamp } = blogs || {};
+
+    const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    const userName = user.displayName;
+    const userPhoto = user.photoURL;
+
+    const getCurrentTimestamp = () => {
+        const currentDate = new Date();
+        return currentDate.toISOString();
+    }
+
+    const handleComment = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const comment = form.comment.value;
+
+        const newComment = { _id, title, category, userName, userPhoto, comment, timestamp: getCurrentTimestamp() };
+
+        console.log(newComment);
+
+        // Send data to the server
+        axiosSecure.post(`/add-comment?email=${user?.email}`, newComment)
+            .then(res => {
+                console.log(res.data);
+                form.reset();
+            })
+    }
 
     return (
         <div className="my-11">
@@ -16,7 +46,17 @@ const BlogDetails = () => {
             <p className="mb-1 font-semibold">Posted: {timestamp}</p>
             <p className="mb-5 font-semibold">Category: {category}</p>
             <p className="mb-1">{shortDescription}</p>
-            <p className="text-justify">{longDescription}</p>
+            <p className="mb-9 text-justify">{longDescription}</p>
+
+            <div>
+                <form onSubmit={handleComment}>
+                    <header className="card-title">Comment</header>
+                    <div className="form-control w-1/2 my-7">
+                        <textarea name="comment" placeholder="Comment" className="textarea textarea-bordered h-32 w-full"></textarea>
+                    </div>
+                    <input type="submit" value="Add Comment" className="btn w-1/2 text-white bg-orange-500 hover:bg-orange-500 normal-case" />
+                </form>
+            </div>
         </div>
     );
 };

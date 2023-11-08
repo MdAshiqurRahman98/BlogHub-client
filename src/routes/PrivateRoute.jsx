@@ -1,8 +1,8 @@
 import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from 'prop-types';
 import useAuth from './../hooks/useAuth';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useAuth();
@@ -10,8 +10,8 @@ const PrivateRoute = ({ children }) => {
     // console.log(location.pathname);
 
     if (loading) {
-        return <span className="text-center">
-            <Skeleton count={10} />
+        return <span className="text-center text-base-200">
+            <Skeleton count={30} />
         </span>;
     }
 
