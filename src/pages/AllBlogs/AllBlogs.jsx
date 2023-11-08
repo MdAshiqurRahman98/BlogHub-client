@@ -26,9 +26,10 @@ const AllBlogs = () => {
         const searchText = form.search.value;
         setSearch(searchText);
 
-        if (blogs.length) {
+        if (blogs.length > 0) {
             const blog = blogs.find(blg => blg.title === search);
             setBlogs(blog);
+            form.reset();
         }
     }
 

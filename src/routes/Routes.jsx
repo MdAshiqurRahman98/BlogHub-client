@@ -5,7 +5,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from './../pages/Login/Login';
 import Register from './../pages/Register/Register';
 import Wishlist from "../pages/Wishlist/Wishlist";
-import FeaturedBlogs from "../pages/FeaturedBlogs/FeaturedBlogs";
+import FeaturedBlog from "../pages/FeaturedBlog/FeaturedBlog";
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import AddBlog from "../pages/AddBlog/AddBlog";
 import UpdateBlog from "../pages/UpdateBlog/UpdateBlog";
@@ -34,7 +34,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/featured-blogs',
-                element: <FeaturedBlogs></FeaturedBlogs>
+                element: <FeaturedBlog></FeaturedBlog>,
+                loader: () => fetch('http://localhost:5000/featured-blogs')
             },
             {
                 path: '/wishlist',
