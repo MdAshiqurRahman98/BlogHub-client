@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/all-blogs')
+                loader: () => fetch('https://blog-web-app-server-psi.vercel.app/all-blogs')
             },
             {
                 path: '/add-blog',
@@ -30,12 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/all-blogs',
                 element: <AllBlogs></AllBlogs>,
-                loader: () => fetch('http://localhost:5000/all-blogs')
+                loader: () => fetch('https://blog-web-app-server-psi.vercel.app/all-blogs')
             },
             {
                 path: '/featured-blogs',
                 element: <FeaturedBlog></FeaturedBlog>,
-                loader: () => fetch('http://localhost:5000/featured-blogs')
+                loader: () => fetch('https://blog-web-app-server-psi.vercel.app/featured-blogs')
             },
             {
                 path: '/wishlist',
@@ -44,17 +44,17 @@ const router = createBrowserRouter([
             {
                 path: '/blog/:id',
                 element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-web-app-server-psi.vercel.app/blog/${params.id}`)
             },
             {
                 path: '/blog-from-wishlist/:id',
                 element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog-from-wishlist/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-web-app-server-psi.vercel.app/blog-from-wishlist/${params.id}`)
             },
             {
                 path: '/update-blog/:id',
                 element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-web-app-server-psi.vercel.app/blog/${params.id}`)
             },
             {
                 path: '/login',

@@ -10,7 +10,7 @@ const BlogsCard = ({ blog }) => {
         const wishlist = { title, image, category, shortDescription, longDescription, timestamp };
 
         // Send data to the server
-        axios.post('http://localhost:5000/add-to-wishlist', wishlist)
+        axios.post('https://blog-web-app-server-psi.vercel.app/add-to-wishlist', wishlist)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

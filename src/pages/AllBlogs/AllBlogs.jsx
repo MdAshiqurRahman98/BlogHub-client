@@ -8,7 +8,7 @@ const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/all-blogs/search?search=${search}`)
+        axios.get(`https://blog-web-app-server-psi.vercel.app/all-blogs/search?search=${search}`)
             .then(res => {
                 setBlogs(res.data);
             })
