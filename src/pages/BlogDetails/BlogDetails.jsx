@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Comments from "../../components/Comments/Comments";
 
 const BlogDetails = () => {
     const blogs = useLoaderData();
@@ -30,7 +31,9 @@ const BlogDetails = () => {
         axiosSecure.post(`/add-comment?email=${user?.email}`, newComment)
             .then(res => {
                 console.log(res.data);
-                form.reset();
+                if (res.data.insertedId) {
+                    form.reset();
+                }
             })
     }
 
@@ -48,7 +51,7 @@ const BlogDetails = () => {
             <p className="mb-1">{shortDescription}</p>
             <p className="mb-9 text-justify">{longDescription}</p>
 
-            <div>
+            <div className="mb-11">
                 <form onSubmit={handleComment}>
                     <header className="card-title">Comment</header>
                     <div className="form-control w-1/2 my-7">
@@ -56,6 +59,9 @@ const BlogDetails = () => {
                     </div>
                     <input type="submit" value="Add Comment" className="btn w-1/2 text-white bg-orange-500 hover:bg-orange-500 normal-case" />
                 </form>
+            </div>
+            <div>
+                <Comments key={_id} _id={_id}></Comments>
             </div>
         </div>
     );

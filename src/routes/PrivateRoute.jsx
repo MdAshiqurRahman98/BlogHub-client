@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
     // console.log(location.pathname);
 
     if (loading) {
-        return <span className="text-center text-base-200">
+        return <span className="text-center">
             <Skeleton count={30} />
         </span>;
     }
