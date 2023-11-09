@@ -60,9 +60,7 @@ const BlogDetails = () => {
                     <input type="submit" value="Add Comment" className="btn w-1/2 text-white bg-orange-500 hover:bg-orange-500 normal-case" />
                 </form>
             </div>
-            <div>
-                <Comments key={_id} _id={_id}></Comments>
-            </div>
+            <Comments key={_id} _id={_id}></Comments>
         </div>
     );
 };
