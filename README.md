@@ -1,6 +1,6 @@
 # BlogHub - A Blog Web App
 
-### Live Link:
+### Live Link: https://bloghubweb.netlify.app/
 
 ### Features of BlogHub:
 
