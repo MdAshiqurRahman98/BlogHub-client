@@ -28,8 +28,8 @@ const Home = () => {
                 <h3 className="text-3xl font-bold text-center mb-9">Newsletter</h3>
                 <div className="bg-base-200 p-24">
                     <form onSubmit={handleSubscribe} className="relative">
-                        <header className="card-title relative top-0 left-72">Get more updates...</header>
-                        <fieldset className="form-control w-96 relative top-5 left-72">
+                        <header className="card-title relative top-0 -left-[71px] md:left-72">Get more updates...</header>
+                        <fieldset className="form-control w-96 relative top-5 -left-[71px] md:left-72">
                             <label className="label">
                                 <span className="label-text">Enter your email address</span>
                             </label>
