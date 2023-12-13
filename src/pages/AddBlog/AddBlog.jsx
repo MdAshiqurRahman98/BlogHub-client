@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const AddBlog = () => {
     const [categoryValue, setCategoryValue] = useState("");
@@ -50,64 +51,69 @@ const AddBlog = () => {
     }
 
     return (
-        <div className="bg-base-200 p-24 mt-12 mb-9">
-            <h2 className="text-3xl font-bold mb-7">Add a Blog</h2>
-            <form onSubmit={handleAddBlog}>
-                {/* form title and image row */}
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Title</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" />
-                        </label>
+        <>
+            <Helmet>
+                <title>Add Blog | BlogHub</title>
+            </Helmet>
+            <div className="bg-base-200 p-24 mt-12 mb-9">
+                <h2 className="text-3xl font-bold mb-7">Add a Blog</h2>
+                <form onSubmit={handleAddBlog}>
+                    {/* form title and image row */}
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Title</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text">Image URL</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
+                            </label>
+                        </div>
                     </div>
-                    <div className="form-control md:w-1/2 md:ml-4">
-                        <label className="label">
-                            <span className="label-text">Image URL</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
-                        </label>
+                    {/* form category and short description row */}
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Category</span>
+                            </label>
+                            <label className='input-group'>
+                                <select value={categoryValue} onChange={handleCategoryChange} name="category" id="" className="input input-bordered w-full">
+                                    <option value="Technology">Technology</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Travel">Travel</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text">Short Description</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="shortDescription" placeholder="Short Description" className="input input-bordered w-full" />
+                            </label>
+                        </div>
                     </div>
-                </div>
-                {/* form category and short description row */}
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Category</span>
-                        </label>
-                        <label className='input-group'>
-                            <select value={categoryValue} onChange={handleCategoryChange} name="category" id="" className="input input-bordered w-full">
-                                <option value="Technology">Technology</option>
-                                <option value="Food">Food</option>
-                                <option value="Travel">Travel</option>
-                            </select>
-                        </label>
+                    {/* form long description row */}
+                    <div className="mb-8">
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Long Description</span>
+                            </label>
+                            <textarea name="longDescription" placeholder="Long Description" className="textarea textarea-bordered h-32 w-full"></textarea>
+                        </div>
                     </div>
-                    <div className="form-control md:w-1/2 md:ml-4">
-                        <label className="label">
-                            <span className="label-text">Short Description</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="shortDescription" placeholder="Short Description" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                {/* form long description row */}
-                <div className="mb-8">
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Long Description</span>
-                        </label>
-                        <textarea name="longDescription" placeholder="Long Description" className="textarea textarea-bordered h-32 w-full"></textarea>
-                    </div>
-                </div>
-                <input type="submit" value="Add Blog" className="btn btn-block text-white bg-orange-500 hover:bg-orange-500 normal-case" />
+                    <input type="submit" value="Add Blog" className="btn btn-block text-white bg-orange-500 hover:bg-orange-500 normal-case" />
 
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 };
 

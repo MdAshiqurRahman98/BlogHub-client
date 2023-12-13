@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from './../../hooks/useAuth';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const [loginError, setLoginError] = useState('');
@@ -66,6 +67,9 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Login | BlogHub</title>
+            </Helmet>
             <h2 className="text-3xl my-10 text-center">Please Login</h2>
             <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">
                 <div className="form-control">

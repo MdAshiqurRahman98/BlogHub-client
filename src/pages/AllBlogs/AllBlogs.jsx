@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Blogs from "../../components/Blogs/Blogs";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AllBlogs = () => {
     const [categoryValue, setCategoryValue] = useState('');
@@ -34,23 +35,28 @@ const AllBlogs = () => {
     }
 
     return (
-        <div className="mb-11">
-            <h3 className="text-3xl font-bold text-center mt-14 mb-9">All Blogs</h3>
-            <div className="mb-14 flex justify-between">
-                <select value={categoryValue} onChange={handleCategory} name="category" id="" className="select select-bordered w-full max-w-xs">
-                    <option value='Technology'>Technology</option>
-                    <option value='Food'>Food</option>
-                    <option value='Travel'>Travel</option>
-                </select>
-                <form onSubmit={handleSearch}>
-                    <div className="join">
-                        <input type="text" name="search" placeholder="Search here..." className="input input-bordered join-item w-64" />
-                        <input type="submit" value="Search" className="btn join-item rounded-r-lg normal-case w-24 bg-orange-500 text-white hover:bg-orange-500" />
-                    </div>
-                </form>
+        <>
+            <Helmet>
+                <title>All Blogs | BlogHub</title>
+            </Helmet>
+            <div className="mb-11">
+                <h3 className="text-3xl font-bold text-center mt-14 mb-9">All Blogs</h3>
+                <div className="mb-14 flex justify-between">
+                    <select value={categoryValue} onChange={handleCategory} name="category" id="" className="select select-bordered w-full max-w-xs">
+                        <option value='Technology'>Technology</option>
+                        <option value='Food'>Food</option>
+                        <option value='Travel'>Travel</option>
+                    </select>
+                    <form onSubmit={handleSearch}>
+                        <div className="join">
+                            <input type="text" name="search" placeholder="Search here..." className="input input-bordered join-item w-64" />
+                            <input type="submit" value="Search" className="btn join-item rounded-r-lg normal-case w-24 bg-orange-500 text-white hover:bg-orange-500" />
+                        </div>
+                    </form>
+                </div>
+                <Blogs></Blogs>
             </div>
-            <Blogs></Blogs>
-        </div>
+        </>
     );
 };
 

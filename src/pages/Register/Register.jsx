@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { updateProfile } from "firebase/auth";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('');
@@ -82,6 +83,9 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Register | BlogHub</title>
+            </Helmet>
             <h2 className="text-3xl my-10 text-center">Please Register</h2>
             <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto">
                 <div className="form-control">

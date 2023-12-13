@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import Blogs from "../../../components/Blogs/Blogs";
 import Banner from "../Banner/Banner";
+import { Helmet } from "react-helmet-async";
 
 const handleSubscribe = event => {
     event.preventDefault();
@@ -20,6 +21,9 @@ const handleSubscribe = event => {
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Home | BlogHub</title>
+            </Helmet>
             <Banner></Banner>
             <h3 className="text-3xl font-bold text-center mb-14">Blog Posts</h3>
             <Blogs></Blogs>
