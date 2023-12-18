@@ -5,7 +5,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from './../pages/Login/Login';
 import Register from './../pages/Register/Register';
 import Wishlist from "../pages/Wishlist/Wishlist";
-import FeaturedBlog from "../pages/FeaturedBlog/FeaturedBlog";
+import FeaturedBlogs from './../pages/FeaturedBlogs/FeaturedBlogs';
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import AddBlog from "../pages/AddBlog/AddBlog";
 import UpdateBlog from "../pages/UpdateBlog/UpdateBlog";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/featured-blogs',
-                element: <FeaturedBlog></FeaturedBlog>,
+                element: <FeaturedBlogs></FeaturedBlogs>,
                 loader: () => fetch('https://blog-web-app-server-psi.vercel.app/featured-blogs')
             },
             {
